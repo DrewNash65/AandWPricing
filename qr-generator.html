@@ -58,6 +58,9 @@
                         <button onclick="printQR()" class="cta-button secondary">
                             🖨️ Print QR Code
                         </button>
+                        <button onclick="openQRInNewTab()" class="cta-button secondary">
+                            🔗 Open in New Tab
+                        </button>
                     </div>
                     <div class="qr-instructions">
                         <h4>How to Use Your QR Code:</h4>
@@ -155,13 +158,29 @@
 
             // Create an image element instead of canvas
             const qrDisplay = document.querySelector('.qr-display');
-            qrDisplay.innerHTML = `<img src="${qrApiUrl}" alt="QR Code" style="border: 2px solid #1e40af; border-radius: 10px;">`;
+            qrDisplay.innerHTML = `
+                <img src="${qrApiUrl}" alt="QR Code"
+                     style="border: 2px solid #1e40af; border-radius: 10px; cursor: pointer;"
+                     title="Right-click to save image"
+                     oncontextmenu="return true;">
+                <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">
+                    💡 Tip: Right-click the QR code above and select "Save Image As" to download
+                </p>
+            `;
 
             // Store the QR URL for download
             window.currentQRUrl = qrApiUrl;
 
             document.getElementById('qrResult').style.display = 'block';
             document.getElementById('qrResult').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openQRInNewTab() {
+            if (window.currentQRUrl) {
+                window.open(window.currentQRUrl, '_blank');
+            } else {
+                alert('Please generate a QR code first');
+            }
         }
 
         function downloadQR() {
@@ -174,12 +193,23 @@
                 link.href = canvas.toDataURL();
                 link.click();
             } else if (window.currentQRUrl) {
-                // API method - download the image
-                const link = document.createElement('a');
-                link.download = '1to1-aesthetics-qr-code.png';
-                link.href = window.currentQRUrl;
-                link.target = '_blank';
-                link.click();
+                // API method - fetch and download the image
+                fetch(window.currentQRUrl)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.download = '1to1-aesthetics-qr-code.png';
+                        link.href = url;
+                        link.click();
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => {
+                        console.error('Download failed:', error);
+                        // Fallback: open in new tab
+                        window.open(window.currentQRUrl, '_blank');
+                        alert('Download failed. QR code opened in new tab - right-click to save.');
+                    });
             } else {
                 alert('Please generate a QR code first');
             }
