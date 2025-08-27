@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Type - 1-to-1 Aesthetics & Wellness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>1-to-1 Aesthetics & Wellness</h1>
+                <p class="tagline">Tell Us About Yourself</p>
+            </div>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> > 
+                <a href="location.html">Location</a> > 
+                <span>Customer Type</span>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="customer-type-selection">
+                <h2>How Can We Help You Today?</h2>
+                <p class="instruction">Please select the option that best describes you:</p>
+
+                <div class="customer-type-cards">
+                    <div class="customer-card" onclick="selectCustomerType('first-time')">
+                        <div class="customer-header">
+                            <div class="customer-icon">🌟</div>
+                            <h3>First Time Patient</h3>
+                        </div>
+                        <div class="customer-details">
+                            <p class="description">New to 1-to-1 Aesthetics & Wellness</p>
+                            <ul class="benefits">
+                                <li>✨ Special introductory pricing</li>
+                                <li>🎯 Personalized consultation</li>
+                                <li>💎 Welcome package benefits</li>
+                            </ul>
+                        </div>
+                        <button class="select-button">
+                            View First Time Pricing
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="customer-card" onclick="selectCustomerType('existing')">
+                        <div class="customer-header">
+                            <div class="customer-icon">💎</div>
+                            <h3>Existing Patient</h3>
+                        </div>
+                        <div class="customer-details">
+                            <p class="description">Welcome back! We're glad to see you again</p>
+                            <ul class="benefits">
+                                <li>🏆 Loyalty member pricing</li>
+                                <li>📅 Priority booking</li>
+                                <li>🎁 Exclusive member offers</li>
+                            </ul>
+                        </div>
+                        <button class="select-button">
+                            View Member Pricing
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="customer-card" onclick="selectCustomerType('party-host')">
+                        <div class="customer-header">
+                            <div class="customer-icon">🎉</div>
+                            <h3>Party Host</h3>
+                        </div>
+                        <div class="customer-details">
+                            <p class="description">Planning a group event or party</p>
+                            <ul class="benefits">
+                                <li>👥 Group discounts available</li>
+                                <li>🎊 Special party packages</li>
+                                <li>🎁 Host rewards & benefits</li>
+                            </ul>
+                        </div>
+                        <button class="select-button">
+                            View Party Pricing
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-card">
+                        <h4>Not Sure Which Category?</h4>
+                        <p>If you're unsure which option applies to you, select "First Time Patient" or contact us directly for personalized assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Questions? Contact us for more information.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

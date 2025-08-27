@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - 1-to-1 Aesthetics & Wellness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>1-to-1 Aesthetics & Wellness</h1>
+                <p class="tagline">QR Code Generator</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="qr-generator-section">
+                <div class="welcome-banner">
+                    <h2>Generate QR Code for Your Pricing Portal</h2>
+                    <p>Create a QR code that links directly to your pricing website</p>
+                </div>
+
+                <div class="generator-form">
+                    <div class="form-group">
+                        <label for="websiteUrl">Website URL:</label>
+                        <input type="url" id="websiteUrl" placeholder="https://yourwebsite.com" value="">
+                        <p class="help-text">Enter the full URL where your pricing portal is hosted</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qrSize">QR Code Size:</label>
+                        <select id="qrSize">
+                            <option value="200">Small (200x200)</option>
+                            <option value="300" selected>Medium (300x300)</option>
+                            <option value="400">Large (400x400)</option>
+                            <option value="500">Extra Large (500x500)</option>
+                        </select>
+                    </div>
+
+                    <button onclick="generateQR()" class="cta-button">
+                        Generate QR Code
+                    </button>
+                </div>
+
+                <div class="qr-result" id="qrResult" style="display: none;">
+                    <h3>Your QR Code</h3>
+                    <div class="qr-display">
+                        <canvas id="qrCanvas"></canvas>
+                    </div>
+                    <div class="qr-actions">
+                        <button onclick="downloadQR()" class="cta-button secondary">
+                            📥 Download QR Code
+                        </button>
+                        <button onclick="printQR()" class="cta-button secondary">
+                            🖨️ Print QR Code
+                        </button>
+                    </div>
+                    <div class="qr-instructions">
+                        <h4>How to Use Your QR Code:</h4>
+                        <ul>
+                            <li>Print the QR code and display it in your office</li>
+                            <li>Add it to business cards or marketing materials</li>
+                            <li>Include it in social media posts</li>
+                            <li>Patients can scan with their phone camera to access pricing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="usage-examples">
+                    <h3>QR Code Usage Ideas</h3>
+                    <div class="examples-grid">
+                        <div class="example-item">
+                            <div class="example-icon">🏢</div>
+                            <h4>Office Display</h4>
+                            <p>Place QR codes in waiting areas for easy access to pricing information</p>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-icon">💳</div>
+                            <h4>Business Cards</h4>
+                            <p>Add QR codes to business cards for instant pricing access</p>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-icon">📱</div>
+                            <h4>Social Media</h4>
+                            <p>Share QR codes on Instagram, Facebook, and other platforms</p>
+                        </div>
+                        <div class="example-item">
+                            <div class="example-icon">📧</div>
+                            <h4>Email Signatures</h4>
+                            <p>Include QR codes in email signatures for easy sharing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
+            <div class="contact-info">
+                <p>QR Code Generator for Pricing Portal</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Set default URL to current domain
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlInput = document.getElementById('websiteUrl');
+            urlInput.value = window.location.origin + '/index.html';
+        });
+
+        function generateQR() {
+            const url = document.getElementById('websiteUrl').value;
+            const size = parseInt(document.getElementById('qrSize').value);
+            const canvas = document.getElementById('qrCanvas');
+            
+            if (!url) {
+                alert('Please enter a website URL');
+                return;
+            }
+
+            // Generate QR code
+            QRCode.toCanvas(canvas, url, {
+                width: size,
+                height: size,
+                margin: 2,
+                color: {
+                    dark: '#1e40af',  // Primary blue color
+                    light: '#ffffff'
+                }
+            }, function (error) {
+                if (error) {
+                    console.error(error);
+                    alert('Error generating QR code');
+                } else {
+                    document.getElementById('qrResult').style.display = 'block';
+                    document.getElementById('qrResult').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        function downloadQR() {
+            const canvas = document.getElementById('qrCanvas');
+            const link = document.createElement('a');
+            link.download = '1to1-aesthetics-qr-code.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function printQR() {
+            const canvas = document.getElementById('qrCanvas');
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>1-to-1 Aesthetics & Wellness - QR Code</title>
+                        <style>
+                            body { 
+                                font-family: Arial, sans-serif; 
+                                text-align: center; 
+                                padding: 20px; 
+                            }
+                            .qr-container { 
+                                margin: 20px auto; 
+                                max-width: 400px; 
+                            }
+                            h1 { 
+                                color: #1e40af; 
+                                margin-bottom: 10px; 
+                            }
+                            p { 
+                                color: #666; 
+                                margin-bottom: 20px; 
+                            }
+                            img { 
+                                border: 2px solid #1e40af; 
+                                border-radius: 10px; 
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="qr-container">
+                            <h1>1-to-1 Aesthetics & Wellness</h1>
+                            <p>Scan for Pricing Information</p>
+                            <img src="${canvas.toDataURL()}" alt="QR Code">
+                            <p>Visit: ${document.getElementById('websiteUrl').value}</p>
+                        </div>
+                    </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</body>
+</html>

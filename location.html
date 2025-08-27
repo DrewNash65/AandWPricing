@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Location - 1-to-1 Aesthetics & Wellness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>1-to-1 Aesthetics & Wellness</h1>
+                <p class="tagline">Choose Your Location</p>
+            </div>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> > <span>Location</span>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="location-selection">
+                <h2>Select Your Preferred Location</h2>
+                <p class="instruction">Choose the location that's most convenient for you:</p>
+
+                <div class="location-cards">
+                    <div class="location-card" onclick="selectLocation('penn-valley')">
+                        <div class="location-header">
+                            <div class="location-icon">📍</div>
+                            <h3>Penn Valley</h3>
+                        </div>
+                        <div class="location-details">
+                            <p class="address">Penn Valley Location</p>
+                            <p class="description">Full-service aesthetic and wellness center</p>
+                        </div>
+                        <div class="location-features">
+                            <span class="feature-tag">✨ Premium Services</span>
+                            <span class="feature-tag">🅿️ Parking Available</span>
+                        </div>
+                        <button class="select-button">
+                            Select Penn Valley
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+
+                    <div class="location-card" onclick="selectLocation('danville')">
+                        <div class="location-header">
+                            <div class="location-icon">📍</div>
+                            <h3>Danville</h3>
+                        </div>
+                        <div class="location-details">
+                            <p class="address">Danville Location</p>
+                            <p class="description">Full-service aesthetic and wellness center</p>
+                        </div>
+                        <div class="location-features">
+                            <span class="feature-tag">✨ Premium Services</span>
+                            <span class="feature-tag">🅿️ Parking Available</span>
+                        </div>
+                        <button class="select-button">
+                            Select Danville
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-card">
+                        <h4>Need Help Choosing?</h4>
+                        <p>Both locations offer the same high-quality services and treatments. Choose based on your convenience and proximity.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Questions? Contact us for more information.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
