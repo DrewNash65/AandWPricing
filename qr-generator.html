@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator - 1-to-1 Aesthetics & Wellness</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="danville-branding.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        .color-preview {
+            margin-top: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .color-swatch {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #colorDescription {
+            color: #dbeafe;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
+    <div class="danville-container">
+        <header class="danville-header">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="/images/1to1-logo.png" alt="1-to-1 Aesthetics & Wellness" class="danville-logo">
                 <h1>1-to-1 Aesthetics & Wellness</h1>
                 <p class="tagline">QR Code Generator</p>
             </div>
@@ -41,7 +72,24 @@
                         </select>
                     </div>
 
-                    <button onclick="generateQR()" class="cta-button">
+                    <div class="form-group">
+                        <label for="colorTheme">Color Theme:</label>
+                        <select id="colorTheme" onchange="updateColorPreview()">
+                            <option value="danville" selected>Danville - Muted Teal/Green</option>
+                            <option value="pennvalley">Penn Valley - Purple/Light Blue</option>
+                        </select>
+                        <p class="help-text">Choose the color scheme that matches your location branding</p>
+
+                        <!-- Color Preview -->
+                        <div class="color-preview" id="colorPreview">
+                            <div class="preview-item">
+                                <div class="color-swatch" id="colorSwatch" style="background-color: #0f766e;"></div>
+                                <span id="colorDescription">Professional muted teal - matches 1to1WellnessMD.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="generateQR()" class="danville-btn-primary">
                         Generate QR Code
                     </button>
                 </div>
@@ -52,13 +100,13 @@
                         <canvas id="qrCanvas"></canvas>
                     </div>
                     <div class="qr-actions">
-                        <button onclick="downloadQR()" class="cta-button secondary">
+                        <button onclick="downloadQR()" class="danville-btn-secondary">
                             📥 Download QR Code
                         </button>
-                        <button onclick="printQR()" class="cta-button secondary">
+                        <button onclick="printQR()" class="danville-btn-secondary">
                             🖨️ Print QR Code
                         </button>
-                        <button onclick="openQRInNewTab()" class="cta-button secondary">
+                        <button onclick="openQRInNewTab()" class="danville-btn-secondary">
                             🔗 Open in New Tab
                         </button>
                     </div>
@@ -101,10 +149,13 @@
             </div>
         </main>
 
-        <footer class="footer">
-            <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
-            <div class="contact-info">
-                <p>QR Code Generator for Pricing Portal</p>
+        <footer class="danville-footer">
+            <div class="danville-container" style="text-align: center;">
+                <img src="/images/1to1-logo.png" alt="1-to-1 Aesthetics & Wellness" class="danville-logo" style="margin-bottom: 1rem;">
+                <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
+                <div class="contact-info">
+                    <p>QR Code Generator for Pricing Portal</p>
+                </div>
             </div>
         </footer>
     </div>
@@ -114,17 +165,56 @@
         document.addEventListener('DOMContentLoaded', function() {
             const urlInput = document.getElementById('websiteUrl');
             urlInput.value = window.location.origin + '/index.html';
+            updateColorPreview(); // Initialize color preview
         });
+
+        function updateColorPreview() {
+            const colorTheme = document.getElementById('colorTheme').value;
+            const colorSwatch = document.getElementById('colorSwatch');
+            const colorDescription = document.getElementById('colorDescription');
+
+            const themes = {
+                danville: {
+                    color: '#0f766e',
+                    description: 'Professional muted teal - matches 1to1WellnessMD.com'
+                },
+                pennvalley: {
+                    color: '#7c3aed',
+                    description: 'Vibrant purple - modern and energetic branding'
+                }
+            };
+
+            const theme = themes[colorTheme];
+            colorSwatch.style.backgroundColor = theme.color;
+            colorDescription.textContent = theme.description;
+        }
 
         function generateQR() {
             const url = document.getElementById('websiteUrl').value;
             const size = parseInt(document.getElementById('qrSize').value);
+            const colorTheme = document.getElementById('colorTheme').value;
             const canvas = document.getElementById('qrCanvas');
 
             if (!url) {
                 alert('Please enter a website URL');
                 return;
             }
+
+            // Define color schemes
+            const colorSchemes = {
+                danville: {
+                    dark: '#0f766e',    // Teal-700 - muted teal
+                    light: '#ffffff',   // White background
+                    border: '#0f766e'   // Matching border
+                },
+                pennvalley: {
+                    dark: '#7c3aed',    // Purple-600 - vibrant purple
+                    light: '#ffffff',   // White background
+                    border: '#7c3aed'   // Matching border
+                }
+            };
+
+            const colors = colorSchemes[colorTheme];
 
             // Try using the QRCode library first
             if (typeof QRCode !== 'undefined') {
@@ -134,13 +224,13 @@
                     height: size,
                     margin: 2,
                     color: {
-                        dark: '#1e40af',  // Primary blue color
-                        light: '#ffffff'
+                        dark: colors.dark,
+                        light: colors.light
                     }
                 }, function (error) {
                     if (error) {
                         console.error(error);
-                        generateQRFallback(url, size);
+                        generateQRFallback(url, size, colorTheme);
                     } else {
                         document.getElementById('qrResult').style.display = 'block';
                         document.getElementById('qrResult').scrollIntoView({ behavior: 'smooth' });
@@ -148,19 +238,35 @@
                 });
             } else {
                 // Fallback to API method
-                generateQRFallback(url, size);
+                generateQRFallback(url, size, colorTheme);
             }
         }
 
-        function generateQRFallback(url, size) {
+        function generateQRFallback(url, size, colorTheme = 'danville') {
+            // Define color schemes for API
+            const colorSchemes = {
+                danville: {
+                    color: '0f766e',    // Teal-700 (remove # for API)
+                    bgcolor: 'ffffff',  // White background
+                    border: '#0f766e'   // CSS border color
+                },
+                pennvalley: {
+                    color: '7c3aed',    // Purple-600 (remove # for API)
+                    bgcolor: 'ffffff',  // White background
+                    border: '#7c3aed'   // CSS border color
+                }
+            };
+
+            const colors = colorSchemes[colorTheme];
+
             // Use QR Server API as fallback
-            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}&color=1e40af&bgcolor=ffffff`;
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}&color=${colors.color}&bgcolor=${colors.bgcolor}`;
 
             // Create an image element instead of canvas
             const qrDisplay = document.querySelector('.qr-display');
             qrDisplay.innerHTML = `
                 <img src="${qrApiUrl}" alt="QR Code"
-                     style="border: 2px solid #1e40af; border-radius: 10px; cursor: pointer;"
+                     style="border: 2px solid ${colors.border}; border-radius: 10px; cursor: pointer;"
                      title="Right-click to save image"
                      oncontextmenu="return true;">
                 <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">
