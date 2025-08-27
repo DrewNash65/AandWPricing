@@ -1,0 +1,286 @@
+/* Danville Location Branding - Matching 1to1WellnessMD.com */
+
+/* Color Variables */
+:root {
+    --danville-primary: #1e40af;
+    --danville-primary-light: #2563eb;
+    --danville-primary-dark: #1e3a8a;
+    --danville-secondary: #3b82f6;
+    --danville-accent: #60a5fa;
+    --danville-bg-light: #eff6ff;
+    --danville-bg-medium: #dbeafe;
+    --danville-text-primary: #1e40af;
+    --danville-text-secondary: #1e3a8a;
+    --danville-text-light: #3b82f6;
+}
+
+/* Header Styling */
+.danville-header {
+    background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
+    color: white;
+    padding: 2rem 0;
+}
+
+.danville-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.danville-header p {
+    color: #dbeafe;
+    font-size: 1.125rem;
+}
+
+/* Logo Styling */
+.danville-logo {
+    max-height: 80px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+/* Navigation */
+.danville-nav {
+    background-color: var(--danville-primary-dark);
+    padding: 1rem 0;
+}
+
+.danville-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease;
+}
+
+.danville-nav a:hover {
+    background-color: var(--danville-primary);
+}
+
+/* Main Content */
+.danville-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Category Headers */
+.danville-category-header {
+    background: linear-gradient(135deg, var(--danville-bg-light) 0%, var(--danville-bg-medium) 100%);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--danville-primary);
+}
+
+.danville-category-header h3 {
+    color: var(--danville-text-primary);
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.danville-category-header p {
+    color: var(--danville-text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Service Cards */
+.danville-service-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1), 0 2px 4px -1px rgba(30, 64, 175, 0.06);
+    border: 1px solid var(--danville-bg-medium);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.danville-service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.1), 0 4px 6px -2px rgba(30, 64, 175, 0.05);
+}
+
+.danville-service-card.featured {
+    border: 2px solid var(--danville-primary);
+    box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.2), 0 4px 6px -2px rgba(30, 64, 175, 0.1);
+}
+
+/* Service Card Headers */
+.danville-service-header {
+    background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.danville-service-header h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Price Badges */
+.danville-price-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Service Details */
+.danville-service-details {
+    padding: 1.5rem;
+}
+
+.danville-service-details .description {
+    color: var(--danville-text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Service Features */
+.danville-service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.danville-service-features li {
+    color: var(--danville-text-light);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+}
+
+.danville-service-features li::before {
+    content: "✓";
+    color: var(--danville-primary);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Pricing Info */
+.danville-pricing-info {
+    text-align: center;
+    padding: 1rem;
+    background: var(--danville-bg-light);
+    border-radius: 0.5rem;
+}
+
+.danville-pricing-info .price {
+    color: var(--danville-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.danville-pricing-info .regular-price {
+    color: #6b7280;
+    font-size: 0.875rem;
+    text-decoration: line-through;
+}
+
+/* Benefits Grid */
+.danville-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.danville-benefit-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid var(--danville-bg-medium);
+    transition: all 0.3s ease;
+}
+
+.danville-benefit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1);
+}
+
+.danville-benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.danville-benefit-item h4 {
+    color: var(--danville-text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.danville-benefit-item p {
+    color: var(--danville-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Links */
+.danville-benefit-item a {
+    color: var(--danville-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.danville-benefit-item a:hover {
+    color: var(--danville-primary-light);
+    text-decoration: underline;
+}
+
+/* Buttons */
+.danville-btn-primary {
+    background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.danville-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.3);
+}
+
+/* Footer */
+.danville-footer {
+    background: var(--danville-primary);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.danville-footer p {
+    color: #dbeafe;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .danville-header h1 {
+        font-size: 2rem;
+    }
+    
+    .danville-category-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .danville-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
