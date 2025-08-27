@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Type - 1-to-1 Aesthetics & Wellness</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="danville-branding.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
+    <div class="danville-container">
+        <header class="danville-header">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="/images/1to1-logo.png" alt="1-to-1 Aesthetics & Wellness" class="danville-logo">
                 <h1>1-to-1 Aesthetics & Wellness</h1>
                 <p class="tagline">Tell Us About Yourself</p>
             </div>
-            <nav class="breadcrumb">
-                <a href="index.html">Home</a> > 
-                <a href="location.html">Location</a> > 
-                <span>Customer Type</span>
+            <nav class="danville-nav" style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+                <a href="index.html" style="color: #dbeafe;">Home</a> >
+                <a href="location.html" style="color: #dbeafe;">Location</a> >
+                <span style="color: white; font-weight: 600;">Customer Type</span>
             </nav>
         </header>
 
@@ -27,7 +29,7 @@
                 <p class="instruction">Please select the option that best describes you:</p>
 
                 <div class="customer-type-cards">
-                    <div class="customer-card" onclick="selectCustomerType('first-time')">
+                    <div class="danville-service-card customer-card" onclick="selectCustomerType('first-time')">
                         <div class="customer-header">
                             <div class="customer-icon">🌟</div>
                             <h3>First Time Patient</h3>
@@ -40,13 +42,13 @@
                                 <li>💎 Welcome package benefits</li>
                             </ul>
                         </div>
-                        <button class="select-button">
+                        <button class="danville-btn-primary">
                             View First Time Pricing
                             <span class="arrow">→</span>
                         </button>
                     </div>
 
-                    <div class="customer-card" onclick="selectCustomerType('existing')">
+                    <div class="danville-service-card customer-card" onclick="selectCustomerType('existing')">
                         <div class="customer-header">
                             <div class="customer-icon">💎</div>
                             <h3>Existing Patient</h3>
@@ -59,13 +61,13 @@
                                 <li>🎁 Exclusive member offers</li>
                             </ul>
                         </div>
-                        <button class="select-button">
+                        <button class="danville-btn-primary">
                             View Member Pricing
                             <span class="arrow">→</span>
                         </button>
                     </div>
 
-                    <div class="customer-card" onclick="selectCustomerType('party-host')">
+                    <div class="danville-service-card customer-card" onclick="selectCustomerType('party-host')">
                         <div class="customer-header">
                             <div class="customer-icon">🎉</div>
                             <h3>Party Host</h3>
@@ -78,7 +80,7 @@
                                 <li>🎁 Host rewards & benefits</li>
                             </ul>
                         </div>
-                        <button class="select-button">
+                        <button class="danville-btn-primary">
                             View Party Pricing
                             <span class="arrow">→</span>
                         </button>
@@ -94,10 +96,13 @@
             </div>
         </main>
 
-        <footer class="footer">
-            <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
-            <div class="contact-info">
-                <p>Questions? Contact us for more information.</p>
+        <footer class="danville-footer">
+            <div class="danville-container" style="text-align: center;">
+                <img src="/images/1to1-logo.png" alt="1-to-1 Aesthetics & Wellness" class="danville-logo" style="margin-bottom: 1rem;">
+                <p>&copy; 2024 1-to-1 Aesthetics & Wellness. All rights reserved.</p>
+                <div class="contact-info">
+                    <p>Questions? Contact us for more information.</p>
+                </div>
             </div>
         </footer>
     </div>
