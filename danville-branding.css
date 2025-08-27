@@ -1,17 +1,17 @@
 /* Danville Location Branding - Matching 1to1WellnessMD.com */
 
-/* Color Variables */
+/* Color Variables - Matching 1to1WellnessMD.com muted teal/blue */
 :root {
-    --danville-primary: #1e40af;
-    --danville-primary-light: #2563eb;
-    --danville-primary-dark: #1e3a8a;
-    --danville-secondary: #3b82f6;
-    --danville-accent: #60a5fa;
-    --danville-bg-light: #eff6ff;
-    --danville-bg-medium: #dbeafe;
-    --danville-text-primary: #1e40af;
-    --danville-text-secondary: #1e3a8a;
-    --danville-text-light: #3b82f6;
+    --danville-primary: #0f766e;
+    --danville-primary-light: #14b8a6;
+    --danville-primary-dark: #134e4a;
+    --danville-secondary: #0d9488;
+    --danville-accent: #2dd4bf;
+    --danville-bg-light: #f0fdfa;
+    --danville-bg-medium: #ccfbf1;
+    --danville-text-primary: #134e4a;
+    --danville-text-secondary: #0f766e;
+    --danville-text-light: #0d9488;
 }
 
 /* Header Styling */
