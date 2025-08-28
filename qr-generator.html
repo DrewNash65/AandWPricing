@@ -226,12 +226,14 @@
                 danville: {
                     dark: '#0f766e',    // Teal-700 - muted teal
                     light: '#ffffff',   // White background
-                    border: '#0f766e'   // Matching border
+                    border: '#0f766e',  // Matching border
+                    borderWidth: '2px'  // Standard border
                 },
                 pennvalley: {
                     dark: '#7c3aed',    // Purple-600 - vibrant purple
                     light: '#dbeafe',   // Light blue background (blue-100)
-                    border: '#7c3aed'   // Purple border
+                    border: '#7c3aed',  // Purple border
+                    borderWidth: '8px'  // Thick purple border
                 }
             };
 
@@ -253,6 +255,11 @@
                         console.error(error);
                         generateQRFallback(url, size, colorTheme);
                     } else {
+                        // Apply border styling to canvas
+                        canvas.style.border = `${colors.borderWidth} solid ${colors.border}`;
+                        canvas.style.borderRadius = '10px';
+                        canvas.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+
                         document.getElementById('qrResult').style.display = 'block';
                         document.getElementById('qrResult').scrollIntoView({ behavior: 'smooth' });
                     }
@@ -269,12 +276,14 @@
                 danville: {
                     color: '0f766e',    // Teal-700 (remove # for API)
                     bgcolor: 'ffffff',  // White background
-                    border: '#0f766e'   // CSS border color
+                    border: '#0f766e',  // CSS border color
+                    borderWidth: '2px'  // Standard border
                 },
                 pennvalley: {
                     color: '7c3aed',    // Purple-600 (remove # for API)
                     bgcolor: 'dbeafe',  // Light blue background (blue-100, remove # for API)
-                    border: '#7c3aed'   // Purple border color
+                    border: '#7c3aed',  // Purple border color
+                    borderWidth: '8px'  // Thick purple border
                 }
             };
 
@@ -287,7 +296,7 @@
             const qrDisplay = document.querySelector('.qr-display');
             qrDisplay.innerHTML = `
                 <img src="${qrApiUrl}" alt="QR Code"
-                     style="border: 2px solid ${colors.border}; border-radius: 10px; cursor: pointer;"
+                     style="border: ${colors.borderWidth} solid ${colors.border}; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
                      title="Right-click to save image"
                      oncontextmenu="return true;">
                 <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">
