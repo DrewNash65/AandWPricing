@@ -23,12 +23,23 @@
             gap: 0.75rem;
         }
 
+        .color-swatch-container {
+            display: flex;
+            gap: 0.5rem;
+        }
+
         .color-swatch {
             width: 2rem;
             height: 2rem;
             border-radius: 0.5rem;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-swatch.secondary {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-top: 0.25rem;
         }
 
         #colorDescription {
@@ -83,7 +94,10 @@
                         <!-- Color Preview -->
                         <div class="color-preview" id="colorPreview">
                             <div class="preview-item">
-                                <div class="color-swatch" id="colorSwatch" style="background-color: #0f766e;"></div>
+                                <div class="color-swatch-container" id="colorSwatchContainer">
+                                    <div class="color-swatch primary" id="colorSwatch" style="background-color: #0f766e;"></div>
+                                    <div class="color-swatch secondary" id="backgroundSwatch" style="background-color: #ffffff; display: none;"></div>
+                                </div>
                                 <span id="colorDescription">Professional muted teal - matches 1to1WellnessMD.com</span>
                             </div>
                         </div>
@@ -171,21 +185,28 @@
         function updateColorPreview() {
             const colorTheme = document.getElementById('colorTheme').value;
             const colorSwatch = document.getElementById('colorSwatch');
+            const backgroundSwatch = document.getElementById('backgroundSwatch');
             const colorDescription = document.getElementById('colorDescription');
 
             const themes = {
                 danville: {
                     color: '#0f766e',
-                    description: 'Professional muted teal - matches 1to1WellnessMD.com'
+                    background: '#ffffff',
+                    description: 'Professional muted teal - matches 1to1WellnessMD.com',
+                    showBackground: false
                 },
                 pennvalley: {
                     color: '#7c3aed',
-                    description: 'Vibrant purple - modern and energetic branding'
+                    background: '#dbeafe',
+                    description: 'Purple QR code with light blue background - modern branding',
+                    showBackground: true
                 }
             };
 
             const theme = themes[colorTheme];
             colorSwatch.style.backgroundColor = theme.color;
+            backgroundSwatch.style.backgroundColor = theme.background;
+            backgroundSwatch.style.display = theme.showBackground ? 'block' : 'none';
             colorDescription.textContent = theme.description;
         }
 
@@ -209,8 +230,8 @@
                 },
                 pennvalley: {
                     dark: '#7c3aed',    // Purple-600 - vibrant purple
-                    light: '#ffffff',   // White background
-                    border: '#7c3aed'   // Matching border
+                    light: '#dbeafe',   // Light blue background (blue-100)
+                    border: '#7c3aed'   // Purple border
                 }
             };
 
@@ -252,8 +273,8 @@
                 },
                 pennvalley: {
                     color: '7c3aed',    // Purple-600 (remove # for API)
-                    bgcolor: 'ffffff',  // White background
-                    border: '#7c3aed'   // CSS border color
+                    bgcolor: 'dbeafe',  // Light blue background (blue-100, remove # for API)
+                    border: '#7c3aed'   // Purple border color
                 }
             };
 
