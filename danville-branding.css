@@ -18,7 +18,9 @@
 .danville-header {
     background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
     color: white;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem 1rem 2rem 1rem;
 }
 
 .danville-header h1 {
@@ -35,9 +37,105 @@
 
 /* Logo Styling */
 .danville-logo {
-    max-height: 80px;
+    max-height: 120px;
     width: auto;
     margin-bottom: 1rem;
+}
+
+/* Larger logo for main page */
+.main-page-logo {
+    max-height: 240px !important;
+}
+
+/* Override bright blue colors on main page */
+.danville-container .qr-info {
+    background: rgba(15, 118, 110, 0.1) !important;
+}
+
+.danville-container .qr-icon {
+    color: var(--danville-primary) !important;
+}
+
+.danville-container .welcome-section h2 {
+    color: var(--danville-primary-dark) !important;
+}
+
+.danville-container .feature h3 {
+    color: var(--danville-primary-dark) !important;
+}
+
+.danville-container .feature {
+    border: 1px solid rgba(15, 118, 110, 0.2) !important;
+}
+
+.danville-container .cta-section {
+    background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%) !important;
+}
+
+.danville-container .cta-section .instruction {
+    color: #dbeafe !important;
+}
+
+/* Generic location classes for dynamic theming */
+.location-container {
+    background: linear-gradient(135deg, var(--danville-bg-light) 0%, var(--danville-bg-medium) 100%);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.location-header {
+    background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
+    color: white;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem 1rem 2rem 1rem;
+}
+
+.location-footer {
+    background: var(--danville-primary);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 3rem 1rem 1rem 1rem;
+    border-radius: 1rem;
+}
+
+.location-logo {
+    max-height: 120px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.location-nav {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.location-service-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(15, 118, 110, 0.1);
+    border: 1px solid var(--danville-bg-medium);
+    transition: all 0.3s ease;
+}
+
+.location-btn-primary {
+    background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 /* Navigation */
@@ -62,7 +160,8 @@
 .danville-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
+    min-height: 100vh;
 }
 
 /* Category Headers */
@@ -93,6 +192,9 @@
     box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1), 0 2px 4px -1px rgba(30, 64, 175, 0.06);
     border: 1px solid var(--danville-bg-medium);
     transition: all 0.3s ease;
+    margin-bottom: 1.8rem;
+    min-height: 420px;
+    padding: 0;
     overflow: hidden;
 }
 
@@ -110,8 +212,10 @@
 .danville-service-header {
     background: linear-gradient(135deg, var(--danville-primary) 0%, var(--danville-primary-light) 100%);
     color: white;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     position: relative;
+    border-radius: 0.9rem 0.9rem 0 0;
+    margin: 0;
 }
 
 .danville-service-header h4 {
@@ -170,7 +274,7 @@
     text-align: center;
     padding: 1rem;
     background: var(--danville-bg-light);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 
 .danville-pricing-info .price {
@@ -286,8 +390,9 @@
 .danville-footer {
     background: var(--danville-primary);
     color: white;
-    padding: 2rem 0;
-    margin-top: 3rem;
+    padding: 2rem 1rem;
+    margin: 3rem 1rem 1rem 1rem;
+    border-radius: 1rem;
 }
 
 .danville-footer p {

@@ -7,8 +7,8 @@
     --pennvalley-primary-dark: #6d28d9;
     --pennvalley-secondary: #a855f7;
     --pennvalley-accent: #c084fc;
-    --pennvalley-bg-light: #faf5ff;
-    --pennvalley-bg-medium: #e9d5ff;
+    --pennvalley-bg-light: #dbeafe;
+    --pennvalley-bg-medium: #bfdbfe;
     --pennvalley-text-primary: #581c87;
     --pennvalley-text-secondary: #7c3aed;
     --pennvalley-text-light: #8b5cf6;
@@ -18,7 +18,9 @@
 .pennvalley-header {
     background: linear-gradient(135deg, var(--pennvalley-primary) 0%, var(--pennvalley-primary-light) 100%);
     color: white;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem 1rem 2rem 1rem;
 }
 
 .pennvalley-header h1 {
@@ -35,7 +37,7 @@
 
 /* Logo Styling */
 .pennvalley-logo {
-    max-height: 80px;
+    max-height: 120px;
     width: auto;
     margin-bottom: 1rem;
 }
@@ -45,6 +47,71 @@
     background: linear-gradient(135deg, var(--pennvalley-bg-light) 0%, var(--pennvalley-bg-medium) 100%);
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Generic location classes for dynamic theming */
+.location-container {
+    background: linear-gradient(135deg, var(--pennvalley-bg-light) 0%, var(--pennvalley-bg-medium) 100%);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.location-header {
+    background: linear-gradient(135deg, var(--pennvalley-primary) 0%, var(--pennvalley-primary-light) 100%);
+    color: white;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem 1rem 2rem 1rem;
+}
+
+.location-footer {
+    background: var(--pennvalley-primary);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 3rem 1rem 1rem 1rem;
+    border-radius: 1rem;
+}
+
+.location-logo {
+    max-height: 120px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.location-nav {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.location-service-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.1);
+    border: 1px solid var(--pennvalley-bg-medium);
+    transition: all 0.3s ease;
+}
+
+.location-btn-primary {
+    background: linear-gradient(135deg, var(--pennvalley-primary) 0%, var(--pennvalley-primary-light) 100%);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 /* Welcome Banner */
@@ -261,9 +328,10 @@
 .pennvalley-footer {
     background: linear-gradient(135deg, var(--pennvalley-primary-dark) 0%, var(--pennvalley-primary) 100%);
     color: white;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     text-align: center;
-    margin-top: 3rem;
+    margin: 3rem 1rem 1rem 1rem;
+    border-radius: 1rem;
 }
 
 .pennvalley-footer p {
