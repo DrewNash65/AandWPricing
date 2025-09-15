@@ -79,7 +79,6 @@
 /* Generic location classes for dynamic theming */
 .location-container {
     background: linear-gradient(135deg, var(--danville-bg-light) 0%, var(--danville-bg-medium) 100%);
-    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -95,13 +94,13 @@
     background: var(--danville-primary);
     color: white;
     text-align: center;
-    padding: 1.5rem 1rem;
-    margin: 2rem 1rem 1rem 1rem;
+    padding: 1rem;
+    margin: 1rem 1rem 0.5rem 1rem;
     border-radius: 0.5rem;
 }
 
 .location-logo {
-    max-height: 120px;
+    max-height: 80px;
     width: auto;
     margin-bottom: 0.5rem;
 }
@@ -161,7 +160,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
-    min-height: 100vh;
 }
 
 /* Category Headers */
@@ -390,8 +388,8 @@
 .danville-footer {
     background: var(--danville-primary);
     color: white;
-    padding: 1.5rem 1rem;
-    margin: 2rem 1rem 1rem 1rem;
+    padding: 1rem;
+    margin: 1rem 1rem 0.5rem 1rem;
     border-radius: 1rem;
 }
 

@@ -45,7 +45,6 @@
 /* Container */
 .pennvalley-container {
     background: linear-gradient(135deg, var(--pennvalley-bg-light) 0%, var(--pennvalley-bg-medium) 100%);
-    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     padding: 0;
     max-width: 1200px;
@@ -55,7 +54,6 @@
 /* Generic location classes for dynamic theming */
 .location-container {
     background: linear-gradient(135deg, var(--pennvalley-bg-light) 0%, var(--pennvalley-bg-medium) 100%);
-    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -71,13 +69,13 @@
     background: var(--pennvalley-primary);
     color: white;
     text-align: center;
-    padding: 1.5rem 1rem;
-    margin: 2rem 1rem 1rem 1rem;
+    padding: 1rem;
+    margin: 1rem 1rem 0.5rem 1rem;
     border-radius: 0.5rem;
 }
 
 .location-logo {
-    max-height: 120px;
+    max-height: 80px;
     width: auto;
     margin-bottom: 0.5rem;
 }
@@ -328,9 +326,9 @@
 .pennvalley-footer {
     background: linear-gradient(135deg, var(--pennvalley-primary-dark) 0%, var(--pennvalley-primary) 100%);
     color: white;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     text-align: center;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 1rem 1rem 0.5rem 1rem;
     border-radius: 0.5rem;
 }
 
